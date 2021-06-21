@@ -100,13 +100,17 @@ class RWALScan:
           if r.status_code == 404:
             print('\r' + Fore.RED + '[404]%s\t\t\n' % url)
           if r.status_code == 500:
-            print('\r' + Fore.RED + '[500]%s\t\t\n' % url)
+            print('\r' + Fore.YELLOW + '[500]%s\t\t\n' % url)
             result = open('result-500.html', 'a+')
             result.write('<title>富婆地址列表扫描结果</title>似乎是缺少了参数，请点击下面链接查看详情<table><tr><td><a href="' + url + '" rel="external nofollow" target="_blank">' + url + '</a></td></tr></table>')
             result.write('\r\n</br>')
             result.close()
           if r.status_code == 302:
-            print('\r' + Fore.RED + '[302]%s\t\t\n' % url)
+            print('\r' + Fore.YELLOW + '[302]%s\t\t\n' % url)
+            result = open('result-302.html', 'a+')
+            result.write('<title>富婆地址列表扫描结果</title>被转发了，请点击下面链接查看详情<table><tr><td><a href="' + url + '" rel="external nofollow" target="_blank">' + url + '</a></td></tr></table>')
+            result.write('\r\n</br>')
+            result.close()
           if r.status_code == 403:
             print('\r' + Fore.RED + '[403]%s\t\t\n' % url)
           if r.status_code == 405:
