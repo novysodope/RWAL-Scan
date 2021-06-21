@@ -1,17 +1,6 @@
 # RWAL-Scan
 Rich woman address list scanner --富婆地址列表扫描器 v1.0
 
-  _______          __     _         _____
- |  __ \ \        / /\   | |       / ____|
- | |__) \ \  /\  / /  \  | |      | (___   ___ __ _ _ __
- |  _  / \ \/  \/ / /\ \ | |       \___ \ / __/ _` | '_ \
- | | \ \  \  /\  / ____ \| |____   ____) | (_| (_| | | | |
- |_|  \_\  \/  \/_/    \_\______| |_____/ \___\__,_|_| |_|
-
- Welcome use Laji Jiaoben
- Rich woman address list scanner --富婆地址列表扫描器 v1.0
- by: novy
-
 
 Usage: python run.py -u <目标URL> -f <字典文件> [-t <线程数，这个参数可有可无>]，
 
