@@ -27,3 +27,8 @@ python3 run.py -u http://example.com -f dict.txt
 
 4、优化输出及结果页
 
+#20210623更新
+
+-----------
+
+在fengx的帮助下优化一些功能
