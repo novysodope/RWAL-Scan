@@ -1,6 +1,9 @@
-# RWAL-Scan
+# 一款成功率高达33%的扫描器，漏洞要么存在要么不存在要么被拉黑
+
+# RWD-Scan
 python3 run.py -u http://example.com -f dict.txt
-'''
+
+
 # 富婆地址列表1.0发布日志
 
 ----------
@@ -24,6 +27,3 @@ python3 run.py -u http://example.com -f dict.txt
 
 4、优化输出及结果页
 
-5、完善字典
-
-'''
