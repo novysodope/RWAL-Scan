@@ -27,7 +27,7 @@ python3 run.py -u http://example.com -f dict.txt
 
 4、优化输出及结果页
 
-# 2.0.1更新
+# 2.0.1更新日志
 
 -----------
 
