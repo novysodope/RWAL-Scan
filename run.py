@@ -46,7 +46,7 @@ def main():
 .##.....##..###..###..########...######...######..##.....##.##....##
                                           
  Welcome use Laji Jiaoben,I'm lunzi king
- Rich Woman Directory Scanner --富婆扫描器 v2.0
+ Rich Woman Directory Scanner --富婆扫描器 v2.0.1
  by: novy\n\n'''
  print(Fore.BLUE + author)
  parser = OptionParser('python run.py -u <目标URL> -f <字典文件> [-t <线程数，这个参数可有可无>]，\n\n示例：\npython3 run.py -u http://example.com -f dict.txt')
