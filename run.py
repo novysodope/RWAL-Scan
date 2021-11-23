@@ -88,6 +88,8 @@ class RWALScan:
           r.headers
           ad = r.headers.get('Server')
           ab = r.headers.get('X-Powered-By')
+          #ap = r.headers.get('Location')
+          # an = r.headers.get('Set-Cookie')
           if ad:
             pass
           else:
@@ -101,7 +103,15 @@ class RWALScan:
           	pass
           else:
           	ac = "null"
+          # if ap:
+          #   pass
+          # else:
+          #   ap = "null"
           #print(ab)
+          # if an:
+          #   pass
+          # else:
+          #   an = "null"
           if r.status_code == 200:
             page = urllib.request.urlopen(url)
             html = page.read().decode('utf-8')
@@ -115,22 +125,22 @@ class RWALScan:
             print('\r' + Fore.GREEN + '[+]%s\t\t\n' % url)
             #print (title)
             result = open('result-200.html', 'a+')
-            result.write('<title>200-富婆扫描器</title>页面存在！请点击下面链接验证<table><tr><td><a href="' + url + '" rel="external nofollow" target="_blank">' + url + '</a>&nbsp;</font><br><a>网站标题：[<font color="#FF0000">' + title[0] + '</font>]&nbsp;&nbsp;服务器环境：[<font color="#FF0000">' + ad + '</font>]</a>&nbsp;&nbsp;<br><a>X-Powered-By：[<font color="FF0000">' + ab + '</font>]&nbsp;&nbsp;Length：[<font color="FF0000">' + ac + '</font>]</a></td></tr></table>')
+            result.write('<title>200-富婆扫描器</title>页面存在！请点击下面链接验证<table><tr><td><a href="' + url + '" ' + 'target="_blank">' + url + '</a>&nbsp;</font><br><a>网站标题：[<font color="#FF0000">' + title[0] + '</font>]&nbsp;&nbsp;服务器环境：[<font color="#FF0000">' + ad + '</font>]</a>&nbsp;&nbsp;<br><a>X-Powered-By：[<font color="FF0000">' + ab + '</font>]&nbsp;&nbsp;Length：[<font color="FF0000">' + ac + '</font>]</a></td></tr></table>')
             result.write('\r\n</br>')
             result.close()
           if r.status_code == 404:
             result = open('result-404.html', 'a+')
-            result.write('<title>404-富婆扫描器</title>404页面<table><tr><td><a href="' + url + ' rel="external nofollow" target="_blank">' + url + '</a>&nbsp;<font><br><a>标题：[<font color="#FF0000">' + title[0] + '</font>]&nbsp;&nbsp;服务器环境：[<font color="#FF0000">' + ad + '</font>]</a>&nbsp;&nbsp;<br><a>X-Powered-By：[<font color="FF0000">' + ab + '</font>]&nbsp;&nbsp;Length：[<font color="FF0000">' + ac + '</font>]</a></td></tr></table>')
+            result.write('<title>404-富婆扫描器</title>404页面<table><tr><td><a href="' + url + '" ' +'target="_blank">' + url + '</a>&nbsp;<font><br><a>标题：[<font color="#FF0000">' + title[0] + '</font>]&nbsp;&nbsp;服务器环境：[<font color="#FF0000">' + ad + '</font>]</a>&nbsp;&nbsp;<br><a>X-Powered-By：[<font color="FF0000">' + ab + '</font>]&nbsp;&nbsp;Length：[<font color="FF0000">' + ac + '</font>]</a></td></tr></table>')
             result.write('\r\n<br>')
             result.close()
           if r.status_code == 405:
             result = open('result-405.html', 'a+')
-            result.write('<title>404-富婆扫描器</title>不允许GET请求，请换种请求方式：<table><tr><td><a href="' + url + ' rel="external nofollow" target="_blank">' + url + '</a>&nbsp;<font><br><a>标题：[<font color="#FF0000">' + title[0] + '</font>]&nbsp;&nbsp;服务器环境：[<font color="#FF0000">' + ad + '</font>]</a>&nbsp;&nbsp;<br><a>X-Powered-By：[<font color="FF0000">' + ab + '</font>]&nbsp;&nbsp;Length：[<font color="FF0000">' + ac + '</font>]</a></td></tr></table>')
+            result.write('<title>404-富婆扫描器</title>不允许GET请求，请换种请求方式：<table><tr><td><a href="' + url + '" ' + 'target="_blank">' + url + '</a>&nbsp;<font><br><a>标题：[<font color="#FF0000">' + title[0] + '</font>]&nbsp;&nbsp;服务器环境：[<font color="#FF0000">' + ad + '</font>]</a>&nbsp;&nbsp;<br><a>X-Powered-By：[<font color="FF0000">' + ab + '</font>]&nbsp;&nbsp;Length：[<font color="FF0000">' + ac + '</font>]</a></td></tr></table>')
             result.write('\r\n<br>')
             result.close()
           if r.status_code == 500:
             result = open('result-500.html', 'a+')
-            result.write('<title>404-富婆扫描器</title>500页面<table><tr><td><a href="' + url + ' rel="external nofollow" target="_blank">' + url + '</a>&nbsp;<font><br><a>标题：[<font color="#FF0000">' + title[0] + '</font>]&nbsp;&nbsp;服务器环境：[<font color="#FF0000">' + ad + '</font>]</a>&nbsp;&nbsp;<br><a>X-Powered-By：[<font color="FF0000">' + ab + '</font>]&nbsp;&nbsp;Length：[<font color="FF0000">' + ac + '</font>]</a></td></tr></table>')
+            result.write('<title>404-富婆扫描器</title>500页面<table><tr><td><a href="' + url + '" ' + 'target="_blank">' + url + '</a>&nbsp;<font><br><a>标题：[<font color="#FF0000">' + title[0] + '</font>]&nbsp;&nbsp;服务器环境：[<font color="#FF0000">' + ad + '</font>]</a>&nbsp;&nbsp;<br><a>X-Powered-By：[<font color="FF0000">' + ab + '</font>]&nbsp;&nbsp;Length：[<font color="FF0000">' + ac + '</font>]</a></td></tr></table>')
             result.write('\r\n<br>')
             result.close()
             #print('[!]异常')
