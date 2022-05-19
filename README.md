@@ -6,11 +6,11 @@
 python3
 
 
-index.py暂时无用，留着以后做集成，可以单独运行DirScan、UrlScan（这个是批量，需要预先把地址放到url.txt）
+index.py暂时无用，留着以后做集成，可以单独运行DirScan、UrlScan
 
-扫存活扫目录
+### UrlScan -批量扫存活，输出网站标题
 
-输出网站标题、响应长度、目标使用的server
+### DirSca  -扫目录，输出网站标题、响应长度、目标使用的server
 
 根据结果收集有用的信息
 
