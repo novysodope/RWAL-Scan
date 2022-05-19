@@ -4,7 +4,7 @@
 python3
 
 
-index.py暂时无用，留着以后做集成，可以单独运行DirScan、UrlScan
+index.py暂时无用，留着以后做集成，可以单独运行DirScan、UrlScan（这个是批量，需要预先把地址放到url.txt）
 
 扫存活扫目录
 
