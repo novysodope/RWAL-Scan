@@ -16,3 +16,8 @@ index.py暂时无用，留着以后做集成，可以单独运行DirScan、UrlSc
 
 目录扫描最好是不要斜杠结尾
 url扫描最好是加上http或https
+
+<img width="1080" alt="1" src="https://user-images.githubusercontent.com/45167857/170027329-90b9b293-ee77-4936-b6be-e349a8faa8f2.png">
+<img width="720" alt="dirscan" src="https://user-images.githubusercontent.com/45167857/170027905-c4d938d5-2ece-4a0c-9edd-5f6766b630b8.png">
+
+
