@@ -18,6 +18,7 @@ python DirScan.py -u https://url -f dict.txt
 ```
 
 目录扫描最好是`不要以斜杠结尾`
+
 url扫描最好是`加上http或https`
 (这两条可以自己加个if优化)
 
