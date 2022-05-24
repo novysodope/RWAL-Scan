@@ -12,7 +12,7 @@ index.py暂时无用，留着以后做集成，可以单独运行DirScan、UrlSc
 python UrlScan.py -u url.txt
 ```
 
-### DirSca  -扫目录，输出网站标题、响应长度、目标使用的server
+### DirScan  -扫目录，输出网站标题、响应长度、目标使用的server
 ```bash
 python DirScan.py -u https://url -f dict.txt
 ```
