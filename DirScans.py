@@ -135,5 +135,5 @@ def run(url):
     #   print()
  
 if __name__ == '__main__':
-    print('\n\n--------------------fengx NB!!!!-----------------\n\n')
+    print('\n\n------------------fengx NB!!!!-----------------\n\n')
     mainshow()
