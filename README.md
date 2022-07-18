@@ -17,6 +17,12 @@ python UrlScan.py -u url.txt
 python DirScan.py -u https://url -f dict.txt
 ```
 
+### DirScans  -批量扫目录，输出网站标题、响应长度、目标使用的server
+如果没有参数，默认扫描当前目录下的url.txt，请确保目录下有目标url.txt以及字典文件dict.txt，如果要指定文件，请使用-h查看帮助
+```bash
+python DirScans.py
+```
+
 目录扫描最好是`不要以斜杠结尾`
 
 url扫描最好是`加上http或https`
