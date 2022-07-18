@@ -5,7 +5,7 @@
 
 可以把项目上常见的场景添加到dict.txt，然后在做授权的安全服务项目的时候就可以一把梭
 
-index.py暂时无用，留着以后做集成，可以单独运行DirScan、DirScans、UrlScan
+index.py暂时无用，留着以后做集成，可以单独运行DirScan、DirScans、UrlScan，会根据目标状态码生成对应的结果文件
 
 ### UrlScan -批量扫存活，输出网站标题
 ```bash
