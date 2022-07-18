@@ -3,6 +3,7 @@ import sys
 import threading
 import requests
 import signal
+import time
 import random
 from queue import Queue
 from optparse import OptionParser
@@ -14,6 +15,8 @@ import re
 import time
 # import importlib,sys
 # importlib.reload(sys)
+now = time.strftime("%Y_%m_%d_%H_%M")
+today = format(now)
 
 def agent_list():
   agents = [
@@ -39,7 +42,6 @@ def agent_list():
 
   return random.choice(agents)
 
-
 def main():
  author = '''
  
@@ -55,10 +57,10 @@ def main():
                   ░                                                                       
                                           
  扫描结束后会在目录下生成相关结果，请自行查看
- Rich Woman Directory Scanner --富婆目录扫描器 v2.0.2
+ Rich Woman Directory Scanner --富婆目录扫描器 v2.0.3
  by: novy\n\n'''
  print(Fore.BLUE + author)
- parser = OptionParser('python run.py -u <目标URL> -f <字典文件> [-t <线程数，不输入默认10>]，\n\n示例：\npython3 run.py -u http://example.com -f dict.txt')
+ parser = OptionParser('单任务扫描：\npython DirScan.py -u <目标URL> -f <字典文件> [-t <线程数，不输入默认10>]，\n\n示例：\npython3 run.py -u http://example.com -f dict.txt\n')
  parser.add_option('-u', dest='url', type='string', help='要扫描的目标')
  parser.add_option('-f', dest='file_name', type='string', help='字典文件')
  parser.add_option('-t', dest='count', type='int', default=10, help='线程数')
@@ -91,7 +93,6 @@ class RWALScan:
       self._total = total
 
     def run(self):
-
       while not self._queue.empty():
         url = self._queue.get()
         # # 多线程显示进度
@@ -130,7 +131,7 @@ class RWALScan:
               else:
                 title = ['标题获取异常']
             print('\r%s '% code+'[+]%s\t' % url+'|'+title[0]+'\n')
-            result = open('result-200.html', 'a+')
+            result = open('./reports/200/result-200-'+today+'.html', 'a+')
             result.write('<title>200-富婆扫描器</title>200页面：<table><tr><td><a href="' + url + '" ' + 'target="_blank">' + url + '</a>&nbsp;</font><br><a>网站标题：[<font color="#FF0000">' + title[0] + '</font>]&nbsp;&nbsp;服务器环境：[<font color="#FF0000">' + Server + '</font>]</a>&nbsp;&nbsp;<br><a>Length：[<font color="FF0000">' + ContentLength + '</font>]</a></td></tr></table>')
             result.write('\r\n</br>')
             result.close()
@@ -147,7 +148,7 @@ class RWALScan:
               else:
                 title = ['标题获取异常']
             # print('\r\n%s '% code+'[+]%s' % url+'   '+title[0])
-            result = open('result-302.html', 'a+')
+            result = open('./reports/302/result-302-'+today+'.html', 'a+')
             result.write('<title>302-富婆扫描器</title>302页面：<table><tr><td><a href="' + url + '" ' + 'target="_blank">' + url + '</a>&nbsp;</font><br><a>网站标题：[<font color="#FF0000">' + title[0] + '</font>]&nbsp;&nbsp;服务器环境：[<font color="#FF0000">' + Server + '</font>]</a>&nbsp;&nbsp;<br><a>Length：[<font color="FF0000">' + ContentLength + '</font>]</a>&nbsp;&nbsp;<br><a>Location：[<font color="FF0000">' + Location + '</font>]</a></td></tr></table>')
             result.write('\r\n</br>')
             result.close()
@@ -164,7 +165,7 @@ class RWALScan:
               else:
                 title = ['标题获取异常']
             print('\r\n%s '% code+'[+]%s\t' % url+'|'+title[0]+'\n')
-            result = open('result-405.html', 'a+')
+            result = open('./reports/405/result-405-'+today+'.html', 'a+')
             result.write('<title>405-富婆扫描器</title>405页面：<table><tr><td><a href="' + url + '" ' + 'target="_blank">' + url + '</a>&nbsp;</font><br><a>网站标题：[<font color="#FF0000">' + title[0] + '</font>]&nbsp;&nbsp;服务器环境：[<font color="#FF0000">' + Server + '</font>]</a>&nbsp;&nbsp;<br><a>Length：[<font color="FF0000">' + ContentLength + '</font>]</a></td></tr></table>')
             result.write('\r\n</br>')
             result.close()
@@ -181,7 +182,7 @@ class RWALScan:
               else:
                 title = ['标题获取异常']
             print('\r\n%s '% code+'[+]%s\t' % url+'|'+title[0]+'\n')
-            result = open('result-500.html', 'a+')
+            result = open('./reports/500/result-500-'+today+'.html', 'a+')
             result.write('<title>500-富婆扫描器</title>500页面：<table><tr><td><a href="' + url + '" ' + 'target="_blank">' + url + '</a>&nbsp;</font><br><a>网站标题：[<font color="#FF0000">' + title[0] + '</font>]&nbsp;&nbsp;服务器环境：[<font color="#FF0000">' + Server + '</font>]</a>&nbsp;&nbsp;<br><a>Length：[<font color="FF0000">' + ContentLength + '</font>]</a></td></tr></table>')
             result.write('\r\n</br>')
             result.close()
@@ -198,7 +199,7 @@ class RWALScan:
               else:
                 title = ['标题获取异常']
             # print('\r\n%s '% code+'[+]%s' % url+'   '+title[0])
-            result = open('result-400.html', 'a+')
+            result = open('./reports/400/result-400-'+today+'.html', 'a+')
             result.write('<title>400-富婆扫描器</title>400页面：<table><tr><td><a href="' + url + '" ' + 'target="_blank">' + url + '</a>&nbsp;</font><br><a>网站标题：[<font color="#FF0000">' + title[0] + '</font>]&nbsp;&nbsp;服务器环境：[<font color="#FF0000">' + Server + '</font>]</a>&nbsp;&nbsp;<br><a>Length：[<font color="FF0000">' + ContentLength + '</font>]</a></td></tr></table>')
             result.write('\r\n</br>')
             result.close()
