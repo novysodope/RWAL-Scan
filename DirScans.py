@@ -4,13 +4,15 @@ from multiprocessing import Pool
 from tqdm import tqdm
 import requests
 import re
+import time
 import sys
 import argparse
 requests.packages.urllib3.disable_warnings()  #关闭ssl控制台报错
  
 header = {"User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1"}
 urllist = []
- 
+now = time.strftime("%Y_%m_%d_%H_%M")
+today = format(now)
 
 def mainshow():
     parser = argparse.ArgumentParser()
@@ -32,32 +34,41 @@ def mainshow():
     po.join()
 
 def save(data,length,Server,title):
-    f = open(r'批量扫描结果-200.txt', 'a+',encoding='utf-8')
+    # now = time.strftime("%Y_%m_%d_%H_%M")
+    # today = format(now)
+    f = open(r'./reports/批量扫描结果/200/批量扫描结果-200-'+today+'.txt', 'a+',encoding='utf-8')
     f.write(data + '\n')
     f.close()
-    f2 = open(r'批量扫描详情-200.html', 'a+',encoding='utf-8')
+    f2 = open(r'./reports/批量扫描结果/200/批量扫描详情-200-'+today+'.html', 'a+',encoding='utf-8')
     f2.write('<title>200-富婆批量扫描器</title><table><tr><td><a href="' + data + '" ' + 'target="_blank">' + data + '</a>&nbsp;</font>&nbsp;&nbsp;<br>服务器环境：[<font color="#FF0000">' + Server + '</font>]</a>&nbsp;&nbsp;<a>网站标题：[<font color="#FF0000">' + title + '</font>]&nbsp;&nbsp;Length：[<font color="FF0000">' + length + '</font>]</a></td></tr></table> <p></p><p></p>')
     f2.close()
 def savetwo(data,length,Server,title):
-    f = open(r'批量扫描结果-403.txt', 'a+',encoding='utf-8')
+    f = open(r'./reports/批量扫描结果/403/批量扫描结果-403-'+today+'.txt', 'a+',encoding='utf-8')
     f.write(data + '\n')
     f.close()
-    f2 = open(r'批量扫描详情-403.html', 'a+',encoding='utf-8')
+    f2 = open(r'./reports/批量扫描结果/403/批量扫描详情-403-'+today+'.html', 'a+',encoding='utf-8')
     f2.write('<title>403-富婆批量扫描器</title><table><tr><td><a href="' + data + '" ' + 'target="_blank">' + data + '</a>&nbsp;</font>&nbsp;&nbsp;<br>服务器环境：[<font color="#FF0000">' + Server + '</font>]</a>&nbsp;&nbsp;<a>网站标题：[<font color="#FF0000">' + title + '</font>]&nbsp;&nbsp;Length：[<font color="FF0000">' + length + '</font>]</a></td></tr></table> <p></p><p></p>')
     f2.close()
 def savethree(data,length,Server,title):
-    f = open(r'批量扫描结果-500.txt', 'a+',encoding='utf-8')
+    f = open(r'./reports/批量扫描结果/500/批量扫描结果-500-'+today+'.txt', 'a+',encoding='utf-8')
     f.write(data + '\n')
     f.close()
-    f2 = open(r'批量扫描详情-500.html', 'a+',encoding='utf-8')
+    f2 = open(r'./reports/批量扫描结果/500/批量扫描详情-500-'+today+'.html', 'a+',encoding='utf-8')
     f2.write('<title>500-富婆批量扫描器</title><table><tr><td><a href="' + data + '" ' + 'target="_blank">' + data + '</a>&nbsp;</font>&nbsp;&nbsp;<br>服务器环境：[<font color="#FF0000">' + Server + '</font>]</a>&nbsp;&nbsp;<a>网站标题：[<font color="#FF0000">' + title + '</font>]&nbsp;&nbsp;Length：[<font color="FF0000">' + length + '</font>]</a></td></tr></table> <p></p><p></p>')
     f2.close()
 def savefour(data,length,Server,title):
-    f = open(r'批量扫描结果-405.txt', 'a+',encoding='utf-8')
+    f = open(r'./reports/批量扫描结果/500/批量扫描结果-405-'+today+'.txt', 'a+',encoding='utf-8')
     f.write(data + '\n')
     f.close()
-    f2 = open(r'批量扫描详情-405.html', 'a+',encoding='utf-8')
+    f2 = open(r'./reports/批量扫描结果/500/批量扫描详情-405-'+today+'.html', 'a+',encoding='utf-8')
     f2.write('<title>405-富婆批量扫描器</title><table><tr><td><a href="' + data + '" ' + 'target="_blank">' + data + '</a>&nbsp;</font>&nbsp;&nbsp;<br>服务器环境：[<font color="#FF0000">' + Server + '</font>]</a>&nbsp;&nbsp;<a>网站标题：[<font color="#FF0000">' + title + '</font>]&nbsp;&nbsp;Length：[<font color="FF0000">' + length + '</font>]</a></td></tr></table> <p></p><p></p>')
+    f2.close()
+def savefour(data,length,Server,title):
+    f = open(r'./reports/批量扫描结果/400/批量扫描结果-400-'+today+'.txt', 'a+',encoding='utf-8')
+    f.write(data + '\n')
+    f.close()
+    f2 = open(r'./reports/批量扫描结果/400/批量扫描详情-400-'+today+'.html', 'a+',encoding='utf-8')
+    f2.write('<title>400-富婆批量扫描器</title><table><tr><td><a href="' + data + '" ' + 'target="_blank">' + data + '</a>&nbsp;</font>&nbsp;&nbsp;<br>服务器环境：[<font color="#FF0000">' + Server + '</font>]</a>&nbsp;&nbsp;<a>网站标题：[<font color="#FF0000">' + title + '</font>]&nbsp;&nbsp;Length：[<font color="FF0000">' + length + '</font>]</a></td></tr></table> <p></p><p></p>')
     f2.close()
 
 def open_url(url):
@@ -135,5 +146,5 @@ def run(url):
     #   print()
  
 if __name__ == '__main__':
-    print('\n\n------------------fengx NB!!!!-----------------\n\n')
+    print('\n\n--------------------fengx NB!!!!-----------------\n\n')
     mainshow()
